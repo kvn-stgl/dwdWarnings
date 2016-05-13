@@ -10,7 +10,7 @@
     <projectUrl>https://github.com/ForrestFalcon/dwdWarnings</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>$description$</description>
-    <releaseNotes>Initial release.</releaseNotes>
+    <releaseNotes>Add WarningResult.</releaseNotes>
     <copyright>Copyright 2016</copyright>
     <tags>dwd weather warning germany deutschland wetterdienst</tags>
   </metadata>
