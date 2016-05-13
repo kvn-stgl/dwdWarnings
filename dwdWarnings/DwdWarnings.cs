@@ -15,12 +15,12 @@ namespace dwdWarnings
         /// </summary>
         /// <param name="id">Area ID</param>
         /// <returns>List of warnings</returns>
-        public static IList<Warning> GetWarningsById(int id)
+        public static WarningResult GetWarningsById(int id)
         {
-            IList<Warning> warnings = GetWarnings();
-            warnings = warnings.Where(_ => _.AreaId == id).ToList();
+            var result = GetWarnings();
+            result.Warnings = result.Warnings.Where(_ => _.AreaId == id).ToList();
 
-            return warnings;
+            return result;
         }
 
         /// <summary>
@@ -28,19 +28,19 @@ namespace dwdWarnings
         /// </summary>
         /// <param name="county">Region Name</param>
         /// <returns>List of warnings</returns>
-        public static IList<Warning> GetWarningsByRegionName(string county)
+        public static WarningResult GetWarningsByRegionName(string county)
         {
-            IList<Warning> warnings = GetWarnings();
-            warnings = warnings.Where(_ => _.RegionName == county).ToList();
+            var result = GetWarnings();
+            result.Warnings = result.Warnings.Where(_ => _.RegionName == county).ToList();
             
-            return warnings;
+            return result;
         }
 
-        private static IList<Warning> GetWarnings()
+        private static WarningResult GetWarnings()
         {
             try
             {
-                IList<Warning> warnings = Deserializer.GetWarnings();
+                WarningResult warnings = Deserializer.GetWarnings();
                 return warnings;
             }
             catch (Exception ex)

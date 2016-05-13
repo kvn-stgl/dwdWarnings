@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DwdException.cs" />
+    <Compile Include="Model\WarningResult.cs" />
     <Compile Include="Util\ApiClient.cs" />
     <Compile Include="DwdWarnings.cs" />
     <Compile Include="Model\Warning.cs" />

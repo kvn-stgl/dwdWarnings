@@ -28,7 +28,7 @@ namespace dwdWarnings.Util
             return Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(o)));
         }
 
-        public static IList<Warning> GetWarnings()
+        public static WarningResult GetWarnings()
         {
             IList<Warning> warningList = new List<Warning>();
 
@@ -63,7 +63,13 @@ namespace dwdWarnings.Util
                 }
             }
 
-            return warningList;
+            WarningResult result = new WarningResult()
+            {
+                LastUpdate = UnixToDatetime(warnings["time"].ToString()),
+                Warnings = warningList
+            };
+
+            return result;
         }
     }
 }
