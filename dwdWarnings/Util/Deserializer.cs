@@ -16,8 +16,8 @@ namespace dwdWarnings.Util
             long timestamp = 0;
             if (long.TryParse(unix, out timestamp))
             {
-                DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0);
-                return dateTime.AddMilliseconds(timestamp);
+                DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                return dateTime.AddMilliseconds(timestamp).ToLocalTime();
             }
             else
                 return DateTime.Now;
@@ -65,7 +65,7 @@ namespace dwdWarnings.Util
 
             WarningResult result = new WarningResult()
             {
-                LastUpdate = UnixToDatetime(warnings["time"].ToString()),
+                LastUpdate = UnixToDatetime(apiResponse["time"].ToString()),
                 Warnings = warningList
             };
 
