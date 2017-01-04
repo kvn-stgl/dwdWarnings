@@ -22,7 +22,6 @@ Every operation gives back a `WarningResult` with informations:
         public DateTime LastUpdate { get; set; }
     }
 ```
-
 ```Csharp
 public class Warning
     {
