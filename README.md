@@ -1,4 +1,4 @@
-# dwdWarning
+# dwdWarning [![Build Status](https://travis-ci.org/ForrestFalcon/dwdWarnings.svg?branch=master)](https://travis-ci.org/ForrestFalcon/dwdWarnings)
 A little libary to fetch DWD (Deutscher Wetterdienst) warnings.
 
 ## Usage
