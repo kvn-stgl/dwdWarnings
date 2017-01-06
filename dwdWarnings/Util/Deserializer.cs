@@ -3,7 +3,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +15,7 @@ namespace dwdWarnings.Util
             long timestamp = 0;
             if (long.TryParse(unix, out timestamp))
             {
-                DateTime dateTime = new System.DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+                DateTime dateTime = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
                 return dateTime.AddMilliseconds(timestamp).ToLocalTime();
             }
             else
@@ -28,11 +27,11 @@ namespace dwdWarnings.Util
             return Encoding.UTF8.GetString(Encoding.Default.GetBytes(Convert.ToString(o)));
         }
 
-        public static WarningResult GetWarnings()
+        public static async Task<WarningResult> GetWarningsAsync()
         {
             IList<Warning> warningList = new List<Warning>();
 
-            JObject apiResponse = ApiClient.GetResponse();
+            JObject apiResponse = await ApiClient.GetResponseAsync();
             JToken warnings = apiResponse["warnings"];
 
             if (warnings != null)

@@ -5,7 +5,10 @@ A little libary to fetch DWD (Deutscher Wetterdienst) warnings.
 You can either get warnings by a region or the id.
 ``` Csharp
 Warnings.GetWarningsById(int id);
-Warnings.GetWarningsByRegionName(string county)
+Warnings.GetWarningsByRegionName(string county);
+
+Warnings.GetWarningsByIdAsync(int id);
+Warnings.GetWarningsByRegionNameAsync(string county);
 ```
 Every operation gives back a `WarningResult` with informations:
 ``` Csharp

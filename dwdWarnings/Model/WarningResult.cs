@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace dwdWarnings.Model
 {
@@ -17,5 +14,10 @@ namespace dwdWarnings.Model
         /// Last Update Time
         /// </summary>
         public DateTime LastUpdate { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("[{0} Warnings, {1} Last Update]", Warnings.Count, LastUpdate.ToString());
+        }
     }
 }
